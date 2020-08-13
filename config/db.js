@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const { sendMail } = require('../middlewares/nodeMailer');
 
 const connectDB = async (dbUrl) => {
 	try {
@@ -10,6 +11,13 @@ const connectDB = async (dbUrl) => {
 		});
 		console.log('database running.....');
 	} catch (err) {
+		const mailOptions = {
+			from: process.env.username,
+			to: process.env.username,
+			subject: 'DB connection Issue',
+			text: `cannot connect to database`,
+		  };
+		  sendMail(mailOptions);
 		console.error(err.message, 'cannot connect to database');
 	}
 };
