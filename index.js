@@ -147,7 +147,7 @@ async function addData() {
   }
 }
 
-// setInterval(addData, 3000);
+setInterval(addData, 3000);
 
 app.listen(PORT, () => {
   console.log(`Server is up and listening on port no ${PORT}`);
