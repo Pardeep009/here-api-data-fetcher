@@ -1,9 +1,13 @@
 require('dotenv').config();
 
+const express = require('express');
 const request = require('request');
 const OAuth = require('oauth-1.0a');
 const crypto = require('crypto');
 const mongoose = require('mongoose');
+
+const app = express();
+const PORT = process.env.PORT || 5000;
 
 const { connectDB } = require('./config/db');
 const { sendMail } = require('./middlewares/nodeMailer');
@@ -143,4 +147,8 @@ async function addData() {
   }
 }
 
-setInterval(addData, 3000);
+// setInterval(addData, 3000);
+
+app.listen(PORT, () => {
+  console.log(`Server is up and listening on port no ${PORT}`);
+})
