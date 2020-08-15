@@ -1,8 +1,8 @@
 require('dotenv').config();
 
-const request = require('request')
-const OAuth = require('oauth-1.0a')
-const crypto = require('crypto')
+const request = require('request');
+const OAuth = require('oauth-1.0a');
+const crypto = require('crypto');
 const mongoose = require('mongoose');
 
 const { connectDB } = require('./config/db');
